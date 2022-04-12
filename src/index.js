@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express=require('express');
 const mongoose=require("mongoose");
 const app=express();
@@ -14,7 +15,7 @@ app.post("/register",register)
 app.post("/login",login);
 app.use("/post", postController);
 
-app.listen("7965",async()=>{
+app.listen(process.env.PORT || 7965,async()=>{
     await connect();
     console.log("linstening at port 7865");
 })
